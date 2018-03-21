@@ -1,2 +1,1 @@
-# aplicativo # aplicativo # aplicativo
-# aplicativo
+# aplicativo Ionic
