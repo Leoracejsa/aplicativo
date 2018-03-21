@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Alunos</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="openModal()" color="primary">
+          <ion-icon name="add-circle"></ion-icon>
+          <ion-icon name="people"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let aluno of alunos">
+    <ion-item class="aluno">
+      <ion-icon class="icon_aluno" name="contact"></ion-icon>
+      <h2 class="aluno_title">{{aluno.matricula}} - {{aluno.nome}} </h2>
+      <h2>{{aluno.anoNascimento}}</h2>
+      <h2 class="aluno_curso">{{aluno.curso.nome}}</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+      <ion-toolbar>
+        <ion-title>
+          {{aluno ? 'Detalhes de aluno' : 'Adicionar aluno em destaque'}}
+        </ion-title>
+        <ion-buttons start>
+          <button ion-button (click)="dismiss()">
+            <span ion-text color="primary" showWhen="ios,core">Cancelar</span>
+            <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content padding>
+      <form #alunoForm="ngForm" (ngSubmit)="save(aluno)">
+  
+        <ion-row >
+          <ion-col>
+            <ion-list inset>
+              <ion-item>
+                <ion-input placeholder="Nome" name="nome" type="text"
+                           required [(ngModel)]="aluno.nome" #nome></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-input placeholder="Matrícula" name="matricula" type="number"
+                             required [(ngModel)]="aluno.matricula" #matricula></ion-input>
+                </ion-item>
+                  <ion-item>
+                    <ion-select  name="curso" required #curso class="select-curso" placeholder="Curso" multiple="false">
+                        <ion-option [value]="curso.id"  *ngFor="let curso of cursos" >{{curso.nome}}</ion-option>
+                      </ion-select>
+                      </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+  
+  
+  
+  
+        <ion-row>
+  
+        </ion-row>
+        <ion-row>
+          <ion-col>
+  
+            <button ion-button color="primary" full type="submit"
+                    [disabled]="!alunoForm.form.valid">Salvar</button>
+  
+          </ion-col>
+       </ion-row>
+      </form>
+    </ion-content>
